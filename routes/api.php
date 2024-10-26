@@ -11,5 +11,6 @@ Route::get('/user', function (Request $request) {
 //user végpontok (csoportosítás fontos)
 Route::get('/users', [UserController::class, 'index']); //kérés típusa(get stb), az útvonalat mi adjuk meg, melyik kontrollerben melyik függvény hajtja végre a kérést
 Route::get('/users/{id}', [UserController::class, 'show']); 
+Route::post('/users', [UserController::class, 'store']);
 
 //a getes kérések böngészőben is tesztelhetők

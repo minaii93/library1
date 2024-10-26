@@ -21,7 +21,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $record = new User();
+        $record ->fill($request-> all());
+        $record -> save();
     }
 
     /**
