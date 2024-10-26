@@ -9,6 +9,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 //user végpontok (csoportosítás fontos)
-Route::get('users', [UserController::class, 'index']); //kérés típusa(get stb), az útvonalat mi adjuk meg, melyik kontrollerben melyik függvény hajtja végre a kérést
+Route::get('/users', [UserController::class, 'index']); //kérés típusa(get stb), az útvonalat mi adjuk meg, melyik kontrollerben melyik függvény hajtja végre a kérést
+Route::get('/users/{id}', [UserController::class, 'show']); 
 
 //a getes kérések böngészőben is tesztelhetők

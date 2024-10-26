@@ -29,7 +29,8 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //select * from users where id = $id
+        return User::find($id); 
     }
 
     /**
