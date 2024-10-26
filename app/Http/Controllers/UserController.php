@@ -38,9 +38,15 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
+     //patch - részleges módosítás 
+     //put - teljes módosítás
+
     public function update(Request $request, string $id)
     {
-        //
+        $record = User::find($id); //első lépés megkeresni 
+        $record ->fill($request-> all());
+        $record -> save();
     }
 
     /**
@@ -48,6 +54,6 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        User::find($id)->delete();
     }
 }
