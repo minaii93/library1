@@ -20,7 +20,9 @@ class Bookcontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $record = new Book();
+        $record ->fill($request-> all());
+        $record -> save();
     }
 
     /**
@@ -28,7 +30,7 @@ class Bookcontroller extends Controller
      */
     public function show(string $id)
     {
-        //
+        return Book::find($id); 
     }
 
     /**
@@ -36,7 +38,9 @@ class Bookcontroller extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $record = Book::find($id); //első lépés megkeresni 
+        $record ->fill($request-> all());
+        $record -> save();
     }
 
     /**
@@ -44,6 +48,6 @@ class Bookcontroller extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Book::find($id)->delete();
     }
 }
