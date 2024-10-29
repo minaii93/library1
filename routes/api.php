@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Bookcontroller;
+use App\Http\Controllers\CopyController;
 use App\Http\Controllers\UserController;
 use App\Models\Book;
+use App\Models\Copy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +34,16 @@ Route::put('/books/{id}', [BookController::class, 'update']);
 Route::delete('/books/{id}', [BookController::class, 'destroy']); 
 
 //a getes kérések böngészőben is tesztelhetők
+
+//copy végpontok
+
+Route::get('/copies',function (Request $request){
+    return $request ->copy();
+})->middleware('auth:sanctum');
+
+Route::get('/copies', [CopyController::class, 'index']);
+Route::get('/copies/{copy_id}', [CopyController::class, 'show']); 
+Route::post('/copies', [CopyController::class, 'store']);
+Route::put('/copies/{id}', [CopyController::class, 'update']); 
+Route::delete('/copies/{id}', [CopyController::class, 'destroy']); 
+
